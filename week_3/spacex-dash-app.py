@@ -5,9 +5,12 @@ from dash import html
 from dash import dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
- 
+
 # Read the airline data into pandas dataframe
-spacex_df = pd.read_csv("spacex_launch_dash.csv")
+from pathlib import Path
+base = Path(__file__).parent  # directory of the running script
+spacex_df = pd.read_csv(base / 'spacex_launch_dash.csv')
+#spacex_df = pd.read_csv('spacex_launch_dash.csv')
 dropdown_options  = [
                     {'label': 'All Sites', 'value': 'ALL'},
                     {'label': 'CCAFS LC-40', 'value': 'CCAFS LC-40'},
